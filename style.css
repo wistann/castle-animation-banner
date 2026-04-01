@@ -1,0 +1,188 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: #ffffff;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.banner {
+  position: relative;
+  width: 300px;
+  height: 250px;
+  overflow: hidden;
+  background: #ffffff;
+  border: 1px solid #cccccc;
+  color: #1f5f8b;
+}
+
+.banner {
+  position: relative;
+  width: 300px;
+  height: 250px;
+  overflow: hidden;
+  background: #f3f3f3;
+  border: 1px solid #cccccc;
+  color: #1f5f8b;
+}
+
+.frame {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.4s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px 30px;
+}
+
+.frame.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.frame-1 {
+  justify-content: center;
+  gap: 12px;
+}
+
+.text-block {
+  z-index: 2;
+  text-shadow: 0 2px 5px rgba(0,0,0,0.5);
+}
+
+.frame-1 .text-block {
+  width: 55%;
+}
+
+.frame-1 .graphic-block img {
+  height: 55px;
+  width: auto;
+}
+
+.graphic-block {
+  width: 25%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  height: 55%;
+}
+
+.graphic-block img {
+  height: auto;
+  max-height: none;
+  width: auto;
+  display: block;
+  transform-origin: center;
+  animation: castleWobble 3.5s steps(1) infinite;
+  margin-left: 12px;
+}
+
+
+h1 span,
+h2 span {
+  display: inline-block;
+}
+
+h1 span:nth-child(1),
+h2 span:nth-child(1) {
+animation: cutoutWobble 1.6s steps(1) infinite;
+animation-delay: 0.2s;
+}
+h2 span {
+  animation: cutoutWobble 1.6s steps(1) infinite;
+}
+
+h1 span:nth-child(2),
+h2 span:nth-child(2) {
+  animation: cutoutWobble 1.9s steps(1) infinite;
+}
+
+h2 span:nth-child(3) {
+  animation: cutoutWobble 1.4s steps(1) infinite;
+}
+
+h1, h2 {
+  font-weight: 700;
+  line-height: 1.1;
+}
+
+h1 {
+  font-size: 24px;
+  opacity: 0.7;
+  white-space: nowrap;
+}
+
+h2 {
+  font-size: 24px;
+  text-align: center;
+  /* remove white-space: nowrap */
+}
+
+.cta-frame {
+  flex-direction: column;
+  align-items: center; /* centers everything horizontally */
+}
+
+.cta {
+  margin: 5px auto 0;
+  display: block;
+  width: fit-content;
+  padding: 10px 20px; /* increased from 16px */
+  background: #1f5f8b;
+  color: #ffffff;
+  font-size: 13px; /* ↓ from 14px */
+  font-weight: 700;
+  border-radius: 4px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  text-align: center;
+  white-space: nowrap; /* ← add this */
+transition: filter 0.2s ease;
+}
+
+.cta:hover {
+  filter: brightness(1.2);
+}
+
+@keyframes cutoutWobble {
+  0%   { transform: rotate(-2deg) translateY(0px); }
+  12%  { transform: rotate(-2deg) translateY(0px); }
+
+  25%  { transform: rotate(1deg) translateY(-2px); }
+  37%  { transform: rotate(1deg) translateY(-2px); }
+
+  50%  { transform: rotate(-1.5deg) translateY(1px); }
+  62%  { transform: rotate(-1.5deg) translateY(1px); }
+
+  75%  { transform: rotate(2deg) translateY(-1px); }
+  87%  { transform: rotate(2deg) translateY(-1px); }
+
+  100% { transform: rotate(-2deg) translateY(0px); }
+}
+
+@keyframes cutoutWobbleB {
+  0%   { transform: rotate(1.5deg) translateY(0px); }
+  18%  { transform: rotate(1.5deg) translateY(0px); }
+
+  32%  { transform: rotate(-1deg) translateY(1px); }
+  48%  { transform: rotate(-1deg) translateY(1px); }
+
+  64%  { transform: rotate(2deg) translateY(-2px); }
+  82%  { transform: rotate(2deg) translateY(-2px); }
+
+  100% { transform: rotate(1.5deg) translateY(0px); }
+}
+
+@keyframes castleWobble {
+  0%   { transform: rotate(-1deg); }
+  25%  { transform: translateY(-1px) rotate(0.5deg); }
+  50%  { transform: translate(1px, 1px) rotate(-0.5deg); }
+  75%  { transform: translateX(-1px) rotate(1deg); }
+  100% { transform: rotate(-1deg); }
+}
